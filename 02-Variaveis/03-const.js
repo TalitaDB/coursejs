@@ -17,6 +17,7 @@
        pi = 3.14; // Isso resultará em um erro // OUTPUT = Erro: Assignment to constant variable.
 
        /**  Observe, contudo, que 'na origem' o valor pode ser alterado.
+        *   Isso porque o tipo de um dado valor nunca muda, mas o valor guardado numa variável pode ser trocado.
         *   Nesse sentido, fica mais fácil se você imaginar que a parte a esqueda do = é como uma gaveta e a parte a direita o conteúdo.
         *   Você não pode editar o conteúdo, tampouco tentar uma substituição, mas pode ir na origem e trocar o conteúdo.
         *       VEJA O EXEMPLO:
