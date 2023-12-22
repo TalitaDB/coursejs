@@ -46,4 +46,6 @@
  *      O tipo RegExp representa padrões textuais e permite operações sofisticadas de correspondência, pesquisa e substituição em strings. 
  *      O tipo Date representa datas e horas e suporta aritmética de data rudimentar. 
  *      Error e seus subtipos representam erros que podem surgir ao executar código JavaScript.
+ * 
+ *      Como qualquer valor JS que não é um valor primitivo, funções e classes são um tipo especializado de objeto. 
  */
