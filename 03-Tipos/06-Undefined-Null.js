@@ -25,6 +25,3 @@ console.log(meuObjeto.propriedadeInexistente);  // A propriedade inexistente é 
  */
 console.log(null == undefined);  // true
 console.log(null === undefined);  // false
-
-
-

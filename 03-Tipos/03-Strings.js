@@ -38,6 +38,7 @@
     // Números podem estar presentes em uma string.
         let stringNumeros = "12345";  // Uma string composta por números
         console.log(stringNumeros);   // Output: 12345
+        
     // Contudo, é importante notar que, se forem tratados como texto em vez de valores numéricos, operações matemáticas não serão realizadas corretamente.
         let numeroComoTexto = "5";  // Uma string contendo o número 5 como texto
         let numeroComoValor = 2;
