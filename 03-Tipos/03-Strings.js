@@ -17,9 +17,14 @@
  * 
  *   3.   Uma string é uma sequência ordenada imutável de valores de 16 bits.
  *           Cada um dos valores de uma string representa um caractere, geralmente seguindo o padrão Unicode.
+ * 
+ *           Haja vista que as strings podem ser consideradas arrays de caracteres, poder-se-ia esperar que fossem mutáveis. 
+ *           CONTUDO, em JS, as strings são imutáveis: você pode acessar o texto em qualquer índice de uma string.
+ *                  Mas o JS não fornece maneira de alterar o texto de uma string existente. 
  *     
- *        Vale lembrar que strings são TIPOS PRIMITIVOS e, por isso, são IMUTÁVEIS.
- *          "Imutável" significa que, uma vez que você cria uma string, não pode modificar os caracteres individuais dentro dela.
+ *           !!!! Vale lembrar !!!!
+ *     Strings são TIPOS PRIMITIVOS e, por isso, são IMUTÁVEIS.
+ *     "Imutável" significa que, uma vez que você cria uma string, não pode modificar os caracteres individuais dentro dela.
  *          Por exemplo, se tivermos a string 'hello', não podemos alterar o 'e' para 'a' diretamente na string existente.
  *   
  *  4.    Escaping characters   -   pode-se usar o Backslash (\) para incluir caracteres especiais em suas strings.
@@ -38,7 +43,7 @@
     // Números podem estar presentes em uma string.
         let stringNumeros = "12345";  // Uma string composta por números
         console.log(stringNumeros);   // Output: 12345
-        
+
     // Contudo, é importante notar que, se forem tratados como texto em vez de valores numéricos, operações matemáticas não serão realizadas corretamente.
         let numeroComoTexto = "5";  // Uma string contendo o número 5 como texto
         let numeroComoValor = 2;

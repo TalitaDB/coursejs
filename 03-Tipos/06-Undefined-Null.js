@@ -1,4 +1,5 @@
-/** 
+/**     Undefined e Null são tipos especiais que possuem um só valor cada, respectivamente undefined null.
+ * 
  *      null        -   palavra-chave da linguagem avaliada com um valor especial
  *                      normalmente utilizado (de forma voluntária/intencional) para indicar a ausência de um valor
  *                          quando utilizamos null, diz-se voluntariamente ao JS que queremos que ele não aponte para nenhum local na memória
