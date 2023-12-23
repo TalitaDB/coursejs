@@ -20,16 +20,20 @@ console.log(typeof variavel2 === "number"); // Output: true
 const numeroQuatro = 4; // number --> numeroQuatro é uma variável que armazena o número 4.
 const numeroCinco = '5'; // string --> numeroCinco é uma variável que armazena a string '5'.
     // verificação dos tipos
-    console.log(typeof numeroQuatro); // Output: number
-    console.log(typeof numeroCinco);  // Output: string
+        console.log(typeof numeroQuatro); // Output: number
+        console.log(typeof numeroCinco);  // Output: string
 
     // Quando utilizamos o operador + com um número e uma string, o JavaScript realiza a concatenação, convertendo temporariamente o número em uma string.  
-    console.log(numeroQuatro + numeroCinco); // output = 45 - Concatenação do number 4 com a string 5
+        console.log(numeroQuatro + numeroCinco); 
+        // output = 45 - Concatenação do number 4 com a string 5
 
     //Uso de Parênteses com typeof: os parênteses são usados para garantir que a concatenação seja realizada antes de aplicar o typeof.
-    console.log(typeof (numeroQuatro + numeroCinco)); // output = string --> numeroQuatro + numeroCinco resulta em "45" (uma string temporária pela concatenação), e typeof "45" retorna a string "string".
+        console.log(typeof (numeroQuatro + numeroCinco)); 
+        // output = string --> numeroQuatro + numeroCinco resulta em "45" (uma string temporária pela concatenação), e typeof "45" retorna a string "string".
     
     // Sem os parênteses, o typeOf analisa o tipo da primeira variável e concatena ele com a variável seguinte.
-    console.log(typeof numeroQuatro + numeroCinco); // output = number5 --> typeof numeroQuatro retorna "number", e ao ser concatenado com numeroCinco, a saída é a concatenação de "number" e "5", resultando em "number5".
+        console.log(typeof numeroQuatro + numeroCinco); 
+        // output = number5 --> typeof numeroQuatro retorna "number", e ao ser concatenado com numeroCinco, a saída é a concatenação de "number" e "5", resultando em "number5".
+   
     // Veja quando invertemos as variáveis
-    console.log(typeof numeroCinco + numeroQuatro); // output: string4
+     console.log(typeof numeroCinco + numeroQuatro); // output: string4
