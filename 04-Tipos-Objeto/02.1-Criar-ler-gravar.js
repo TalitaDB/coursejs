@@ -1,105 +1,173 @@
-/**     CRIANDO ARRAYS
- * 
- *      []  -       ARRAY LITERALS  -   método mais comum e direto de criar um array: envolver s elementos do array entre colchetes [].
- *      Array() -   ARRAY CONSTRUCTOR -  construtora pode ser chamada de três maneiras distintas: sem argumentos; com um único argumento; Especificando explicitamente dois ou mais elementos de array ou um único elemento não numérico para o array.                                            
- *      Array.of()          -       cria um novo array com os argumentos fornecidos, mesmo que o argumento seja um número.
- *      Array.from()        -       cria um novo array a partir de um objeto iterável (como uma string ou array-like object) ou de uma estrutura de mapa/função.
- *      ...     -   SPREAD OPERATOR -   pode ser usado para criar um array, de modo a incluir os elementos de um array dentro de um literal de array.
- *                                        é uma maneira conveniente de criar uma cópia (rasa) de um array.
- *                                      Isso significa que alterações em copy não afetam original.
- *      
+/** 
+ *      1.      operador []    - Ler/acessar um elemento do array (obter um valor em uma posição específica dentro de um array.)
+ *                               Adicionar um elemento ao final do array (altera o tamanho o array)
+ *                               Substituir elementos do array
+ *      2.      .length        - Fornece o número de elementos presentes no array.
+ *                               Adicionar Elementos ao Final do Array
+ *                               Remover Elementos do Final do Array
+ *                               Alterar o Comprimento do Array (para aumentar ou diminuir) 
+ *      3.      .indexOf(buscar, posicao)     - Retorna o índice do PRIMEIRO elemento encontrado no array, ou -1 se não estiver presente.   
+ *      4.      .lastIndexOf(buscar, posicao) - Retorna o índice do ÚLTIMO elemento encontrado no array, ou -1 se não estiver presente. 
+ *                                                       A diferencia de indexOf(), este método realiza una búsqueda hacia atrás, desde el final de la cadena.   
+ *      5.      .includes(buscar, posicao)   - Procura pelo  valor do atributo buscar dentro da cadeia de caracteres e retorna true ou false de acordo com o resultado. 
+ *                                              O atributo 'buscar' é o texto que desejamos encontrar, e o atributo 'posicao' determina o índice a partir do qual queremos iniciar a busca. 
+ *                                              Se o atributo posicao não for especificado, a busca começa a partir do início da cadeia.
+ *      6.      .push()         - Adiciona um ou mais elementos ao FINAL do array e retorna o novo comprimento.
+ *      7.      .unshift()      - Adiciona um ou mais elementos ao INÍCIO do array e retorna o novo comprimento.
+ *      8.      .pop()          - Remove o ÚLTIMO elemento do array e o retorna.                        
+ *      9.      .shift()        - Remove o PRIMEIRO elemento do array e o retorna.
+ *     10.      .sort()         - ordena os elementos do array. 
+ *     11.      .
+ *     12.      .
+ *     13.      .
+ *                         
  */
 
-//  Array Literals []
-let arrayLiteral = [1, 2, 3, 4, 5];
-console.log(arrayLiteral); // Saída: [1, 2, 3, 4, 5]
+//      1. LENDO/ACESSANDO um elemento de um array usando o operador [] 
+        let fruits = ["Apple", "Orange", "Plum"];
+            // lendo o primeiro elemento do array
+            console.log( fruits[0] ); // output = Apple
+            // lendo o segundo elemento do array
+            console.log( fruits[1] ); // output = Orange
+            // lendo o terceiro elemento do array
+            console.log( fruits[2] ); // output = Plum 
+            
+            //se tentar aceder uma posição que não existe (maior que o tamanho do array), nos retornará um undefined.
+            console.log( fruits[3] ); // output = undefined - nenhum elemento neste índice.
+            console.log( fruits[-1] ); // output = undefined - nenhuma propriedade com este nome.
+
+//      1. ADICIONANDO/ESCREVENDO um elemento ao final do array usando o operador []
+            fruits[3] = "Banana"; // Adicionando um novo elemento na posição 3 do array
+
+            console.log(fruits); //  output = [ 'Apple', 'Orange', 'Plum', 'Banana' ]
+
+//      1. SUBSTITUIR  elementos em arrays usando o operador []
+            fruits[1] = "Naranja" // Substituindo o segundo elemento (índice 1) do array
+
+            console.log(fruits); //  output = [ 'Apple', 'Naranja', 'Plum', 'Banana' ]
 
 
-/**     new Array() - Array Constructor 
- * 
- *  Outra forma simples de criar array, podendo ser invocado de três formas:
- *      1.   SEM ARGUMENTOS  -   cria um array vazio, sem elementos, sendo equivalente ao array literal [].
- *      2.   COM UM ÚNICO ARGUMENTO NUMÉRICO - cria um array com o comprimento especificado. 
- *                                             Nessa forma, pode-se pré-alocar um array quando souber antecipadamente quantos elementos serão necessários. 
- *                                             Note que nenhum valor é armazenado no array, e as propriedades de índice do array "0", "1" e assim por diante, nem mesmo são definidas para o array.
- *                                             Ou seja, essa forma cria um array com o comprimento especificado. Não são atribuídos valores aos elementos do array, e as propriedades de índice não são definidas. 
- *                                             Isso pode ser útil para alocar espaço para um número conhecido de elementos, sem atribuir valores específicos.
- *      3.  ESPECIFICANDO EXPLICITAMENTE DOIS OU MAIS ELEMENTOS - Neste caso, os argumentos fornecidos tornam-se os elementos do novo array. 
- *                                                                Isso é útil quando você deseja criar um array com valores específicos.
- */
+//      2. Obter o Comprimento de um Array usando length
+        // não esparso (também chamado de denso)
+           let arrayDenso = [10, 20, 30, 40, 50];       // Cria um arrai chamado "arrayDenso" com 5 elementos
+           console.log(arrayDenso.length); // Saída: 5  // Imprime no console o comprimento (número de elementos) do array, que é 5.              
+                
+        // arrays esparços
+           let arrayEsparsa1 = [];                      // Cria um array vazio chamado arrayEsparsa1.
+           arrayEsparsa1[2] = 'elemento1';              // Adiciona o elemento 'elemento1' ao índice 2 do array. Como o array estava vazio, isso cria espaços vazios nos índices 0 e 1.
+           arrayEsparsa1[5] = 'elemento2';              // Adiciona o elemento 'elemento2' ao índice 5 do array. Isso cria espaços vazios nos índices 3 e 4.
+           console.log(arrayEsparsa1.length); // Saída: 6       // Imprime no console o comprimento do array, que é 6. Mesmo que haja espaços vazios, o comprimento inclui esses espaços.
 
-        // Chamada sem argumentos
-        let b = new Array(); // Esse método 
-        console.log(b); // output = []
+        // também podemos fazer da seguinte forma
+           let frutas = ["Apple", "Orange", "Plum"];   // Cria um array chamado "frutas" com três elementos.
+           let length = frutas.length;                 // Acessa a propriedade length do array e atribui seu valor a length.
+           console.log(length); // Output: 3           // Imprime o comprimento do array no console.
 
-        // Com um único argumento numérico, que especifica um comprimento
-        let c = new Array(10);
-        console.log(c); // Saída: [ <10 empty items> ]
+//      2. Adicionar Elementos ao Final do Array usando length
+                let colors = ["Red", "Green", "Blue"];  // Cria um array chamado colors com três elementos.
+                colors[colors.length] = "Yellow";       // Adiciona o elemento "Yellow" ao final do array usando o índice colors.length.
+                console.log(colors); // Output: ["Red", "Green", "Blue", "Yellow"]
 
-        // Especificação explícita de dois ou mais elementos de array ou de apenas um elemento não numérico para o array
-        let d = new Array(5, 4, 3, 2, 1, "testing, testing");
-        console.log(d); // Saída: [ 5, 4, 3, 2, 1, 'testing, testing' ]
+//      2. Remover Elementos do Final do Array .length -1
+                let fruitsList = ["Apple", "Orange", "Banana", "Mango"];  // Cria um array chamado fruitsList com quatro elementos.
+                fruitsList.length = fruitsList.length - 1;                //  Reduz o comprimento do array em 1, removendo o último elemento.
+                console.log(fruitsList); // Output: ["Apple", "Orange", "Banana"]  // Imprime o array resultante no console.
 
+//      2. Alterar o Comprimento do Array usando length
+        // aumentando o comprimento
+                let numbers = [10, 20, 30];             //  Cria um array chamado numbers com três elementos.
+                numbers.length = 5;                     // Aumenta o comprimento do array para 5, adicionando elementos undefined
+                console.log(numbers); // Output: [10, 20, 30, undefined, undefined]
 
-/**         Array.of()
- * 
- *      Quando a função construtora Array() é invocada com um argumento numérico, ela usa esse argumento como um comprimento do array. 
- *      Mas quando invocada com mais de um argumento numérico, trata esses argumentos como elementos para o array a ser criado. 
- *      Isso significa que a função construtora Array() não pode ser usada para criar um array com um único elemento numérico. 
- * 
- *      A função Array.of() aborda esse problema: ela é um método de fábrica que cria e retorna um novo array, usando seus valores de argumento (independentemente de quantos existam) como os elementos do array.
- * 
- *      Os exemplos a seguir demonstram como o método Array.of() pode ser flexível em relação aos tipos de elementos e ao número de argumentos fornecidos, criando arrays com base nos valores passados para ele.
- */ 
-        // Array vazio
-        let emptyArray = Array.of();
-        console.log(emptyArray); // Saída: []
-
-        // Array com um único elemento
-        let singleElementArray = Array.of("single");
-        console.log(singleElementArray); // Saída: ['single']
-
-        // Array com vários elementos
-        let multipleElementsArray = Array.of(1, 2, "three", true);
-        console.log(multipleElementsArray); // Saída: [1, 2, 'three', true]
-
-        // Array com valores undefined e null:
-        let undefinedNullArray = Array.of(undefined, null);
-        console.log(undefinedNullArray); // Saída: [undefined, null]
-
-        // Array com objetos como elementos:
-        let objectArray = Array.of({ name: "John" }, { name: "Jane" });
-        console.log(objectArray); // Saída: [ { name: 'John' }, { name: 'Jane' } ]
-
-        // Array com valores numéricos:
-        let numericArray = Array.of(5, 10, 15, 20);
-        console.log(numericArray); // Saída: [5, 10, 15, 20]
-
-/**         Array.from()
- * 
- *      Utilizado para criar um novo array a partir de um objeto iterável ou de um objeto semelhante a array.
- *      Também pode ser utilizado para criar uma cópia do array original.
- */         
+        // diminuindo o comprimento
+                let a = [1,2,3,4,5];        // Aumenta o comprimento do array para 5, adicionando elementos undefined
+                
+                a.length = 3;              // Reduz o comprimento do array para 3. Isso remove os elementos do índice 3 em diante, resultando em [1, 2, 3].
+                console.log(a) // output = [ 1, 2, 3 ]
+                
+                a.length = 0; // Exclua todos os elementos. a é [].
+                console.log(a) // output = []
+                
+                a.length = 5; //  Aumenta o comprimento do array para 5. Isso adiciona dois elementos indefinidos (undefined) 
+                console.log(a) // output = [ <5 empty items> ]  // ao final do array, resultando em [undefined, undefined, undefined, undefined, undefined].
 
 
-// Spread Operator ...
-    // Inclusão de Elementos de um Array: Você pode usar o operador de propagação para incluir os elementos de um array dentro de um novo array.
-    let arrayOriginal = [1, 2, 3];
-    let arraySpread = [...arrayOriginal, 4, 5];
-    console.log(arraySpread); // Saída: [1, 2, 3, 4, 5]
 
-    let ab = [1, 2, 3];
-    let bc = [0, ...ab, 4];
-    console.log(bc); // output = [ 0, 1, 2, 3, 4 ]
+//      3. indexOf()
+        let fruta = ["Apple", "Orange", "Banana", "Orange"];
 
-    // Criação de Cópias (Rasas) de Arrays: É uma maneira conveniente de criar cópias de arrays. Modificar a cópia não afeta o array original.
-    let original = [1, 2, 3];
-    let copy = [...original];
-    copy[0] = 0; // Modificar a cópia não altera o original
-    original[0] // => 1
-    console.log(copy); // output = [ 0, 2, 3 ]
-    console.log(original); // output = [ 1, 2, 3 ]
+        console.log(fruta.indexOf("Banana")); // Output: 2
 
-    // Iterando sobre Strings: O operador de propagação pode ser usado para transformar uma string em um array de caracteres.
-    let digits = [..."0123456789ABCDEF"];
-    console.log(digits); // output = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E", "F"]
+        // Exemplo com elemento presente
+                let indexOfOrange = fruta.indexOf("Orange");
+                console.log(indexOfOrange); // Output: 1
+
+        // Exemplo com elemento ausente
+                let indexOfGrape = fruta.indexOf("Grape");
+                console.log(indexOfGrape); // Output: -1
+
+
+//      4. lastIndexOf()
+        let color = ["Red", "Blue", "Green", "Blue", "Yellow"];
+
+        console.log(color.lastIndexOf("Green")) // Output: 2
+
+        // Exemplo com elemento presente
+                let lastIndexOfBlue = color.lastIndexOf("Blue");
+                console.log(lastIndexOfBlue); // Output: 3
+
+        // Exemplo com elemento ausente
+                let lastIndexOfPurple = color.lastIndexOf("Purple");
+                console.log(lastIndexOfPurple); // Output: -1
+
+
+//      5. .includes(buscar, posicao)
+        let sentence = "Hola, ¿cómo estás hoy?";
+
+        // Exemplo com elemento presente
+                let hasComo = sentence.includes("cómo");
+                console.log(hasComo); // Saída: true
+
+        // Exemplo com elemento ausente
+                let hasAdios = sentence.includes("adiós");
+                console.log(hasAdios); // Saída: false
+
+        // Exemplo com posição especificada
+                let hasEstasDesdePosicion = sentence.includes("estás", 10);
+                console.log(hasEstasDesdePosicion); // Saída: false (porque a busca começa na posição 10)
+
+
+//      6. .push() - para adicionar elementos ao final
+        let numbersP = [1, 2, 3];
+        numbersP.push(4, 5);      // push() é usado para adicionar os elementos 4 e 5 ao final do array numbersP
+        console.log(numbersP);    // output = [ 1, 2, 3, 4, 5 ]  
+        console.log(numbersP.length);   // output = 5           // retorna o tamanho do array
+
+        // mas também é possível adicionar elementos e guardar o tamanho do array em uma nova variável
+        let newLength = numbersP.push("Oi", "Vamos");    // push() é usado para adicionar os elementos"Oi" e "Vamos" ao final do array numbersP
+                // newLength é uma variável que armazena o resultado da chamada do método push().
+        console.log(numbersP);      // Output: [ 1, 2, 3, 4, 5, 'Oi', 'Vamos' ]
+        console.log(newLength);    // Output: 7
+        // Como o método push() modifica o array ao adicionar os elementos especificados, ao verificarmos a variável que guarda o tamanho do array, veremos o novo comprimento do array após a adição.
+
+
+//      7. .unshift()  - para adicionar elementos ao INICIO 
+        let animals = ["Dog", "Cat", "Bird"];
+        animals.unshift("Elephant");
+        console.log(animals);  // Output: [ 'Elephant', 'Dog', 'Cat', 'Bird' ]
+
+
+//      8. .pop() - remover o último elemento
+        let cities = ["New York", "Los Angeles", "Chicago"];
+        let removedCity = cities.pop(); 
+        console.log("Após o pop:", cities); // Output: Após o pop: ["New York", "Los Angeles"]
+        console.log("Elemento removido:", removedCity); // Output: Elemento removido: Chicago
+
+//      9. .shift() - remover o primeiro elemento
+        let cars = ["Toyota", "Honda", "Ford"];
+        let removedCar = cars.shift();
+        console.log("Após o shift:", cars); // Output: Após o shift: ["Honda", "Ford"]
+        console.log("Elemento removido:", removedCar); // Output: Elemento removido: Toyota
+//      10. 
+
+

@@ -14,7 +14,7 @@
         const pi = 3.14159;
         
         // Tentativa de reatribuir um valor a uma constante
-       pi = 3.14; // Isso resultará em um erro // OUTPUT = Erro: Assignment to constant variable.
+         pi = 3.14; // Isso resultará em um erro // OUTPUT = Erro: Assignment to constant variable.
 
        /**  Observe, contudo, que 'na origem' o valor pode ser alterado.
         *   Isso porque o tipo de um dado valor nunca muda, mas o valor guardado numa variável pode ser trocado.

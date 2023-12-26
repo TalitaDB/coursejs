@@ -4,10 +4,16 @@
  *     
  *       -->  O typeof operador em JavaScript retorna “objeto” para arrays. <--
  *  
- *   Um array (ou vetor) é uma estrutura de dados que permite armazenar vários VALORES, de forma ORDENADA, numa única variável.
- *      Ou seja, um array é uma COLEÇÃO ORDENADA de VALORES. 
- *   Cada VALOR é chamado de ELEMENTO, e cada elemento tem uma posição numérica no array, conhecida como ÍNDICE.
- *   O ÍNDICE começa do zero, ou seja, o primeiro elemento está no índice 0, o segundo no índice 1, e assim por diante. 
+ *  EM TERMOS SIMPLES: 
+ *      Arrays são estruturas de dados que permitem armazenar vários VALORES, de forma ORDENADA, numa única variável.
+ *      Cada valor dentro do array é chamado de ELEMENTO, e os elementos são acessados por meio de ÍNDICES NUMÉRICOS.
+ *          Isso significa que cada elemento tem uma posição numérica no array, conhecida como ÍNDICE.
+ * 
+ *      Os elementos do array são numerados começando do zero.
+ *          Ou seja, o ÍNDICE de um array começa em ZERO, de modo que o primeiro elemento está no índice 0, o segundo no índice 1, e assim por diante.
+ *          Como o índice segue uma ordem de 0, 1, 2, 3, 4... dizemos que um array é uma COLEÇÃO ORDENADA de VALORES. 
+ * 
+ *        --> Lembrando que todo e qualquer índice em JavaScript é iniciado a contar de ZERO <--
  * 
  *  RESUMINDO:
  *      Uma array é uma estrutura de dados que permite armazenar uma coleção ordenada de elementos.
@@ -34,23 +40,44 @@
     * 
     *      --> É BOA PRÁTICA QUE OS ELEMENTOS DE UM ARRAY SEJAM TODOS DO MESMO TIPO <--
     */ 
-    // Array com Numbers e Strings
-    let numerosEStrings = [1, 'dois', 3, 'quatro'];
+        // Array com Numbers e Strings
+            let numerosEStrings = [1, 'dois', 3, 'quatro'];
 
-    // Array com Booleanos e Objetos
-    let booleanosEObjetos = [true, false, { nome: 'Alice' }, { nome: 'Bob' }];
+        // Array com Booleanos e Objetos
+            let booleanosEObjetos = [true, false, { nome: 'Alice' }, { nome: 'Bob' }];
 
-    // Array com Valores Null e Undefined
-    let valoresNulosEIndefinidos = [null, undefined, 'texto', 42];
+        // Array com Valores Null e Undefined
+            let valoresNulosEIndefinidos = [null, undefined, 'texto', 42];
 
-    // Os elementos de um array podem até mesmo ser objetos ou outros arrays.
-    let arrayAninhado = [1, [2, 3], 4, [5, 6]]; // Array com Números e Arrays Aninhados
-    let objetosEFuncoes = [{ cor: 'vermelho' }, function () { console.log('Função executada!'); }]; // Array com Objetos e Funções
+        // Os elementos de um array podem até mesmo ser objetos ou outros arrays.
+            let arrayAninhado = [1, [2, 3], 4, [5, 6]]; // Array com Números e Arrays Aninhados
+            let objetosEFuncoes = [{ cor: 'vermelho' }, function () { console.log('Função executada!'); }]; // Array com Objetos e Funções
 
-    // Array com diferentes tipos de elementos 
-    let misturaCompleta = [1, 'dois', { idade: 25 }, false, [5, 10], null];
+        // Array com diferentes tipos de elementos 
+            let misturaCompleta = [1, 'dois', { idade: 25 }, false, [5, 10], null];
 
-    
+        // Os valores de um array literal não precisam ser constantes. Podem ser expressões arbitrárias:
+            let base = 1024;
+            let table = [base, base+1, base+2, base+3];
+            console.log(table); // output = [ 1024, 1025, 1026, 1027 ]
+
+/**          ARRAY ESPARSO (Sparse Array)
+ * 
+ *      Em JS, os elementos de um array não precisam ter índices contínuos.
+ *          Isso significa que pode haver lacunas.
+ * 
+ *      Um array esparso é aquele em que os elementos não possuem índices contíguos s e nem sempre começam no índice 0. 
+ *          São essencialmente Arrays com “buracos”, ou lacunas na sequência de seus índices. 
+ */  
+        let arrayEsparso = [,,,,]       // criando um array esparso
+        console.log(arrayEsparso);      // [ <4 empty items> ]
+
+        let arrayEsparsa = [];          // declarando um array vazio
+        arrayEsparsa[2] = 'elemento1';  // adicionando um elemento no índice 2
+        arrayEsparsa[5] = 'elemento2';  // adicionando um elemento no índice 5
+        console.log(arrayEsparsa);      // output = [ <2 empty items>, 'elemento1', <2 empty items>, 'elemento2' ]
+
+
 /**        CRIANDO ARRAYS
  * 
  *      Existem duas sintaxes para criar um array vazio:
@@ -68,6 +95,7 @@
             "Volvo",
             "BMW"
           ];
+
 
     /**     new Array() - Array Constructor 
      * 
@@ -96,19 +124,6 @@
 
 
             
-/**          ARRAY ESPARSO (Sparse Array)
- * 
- *      Em JS, os elementos de um array não precisam ter índices contínuos.
- *          Isso significa que pode haver lacunas.
- * 
- *      Um array esparso é aquele em que os elementos não possuem índices contíguos s e nem sempre começam no índice 0. 
- *          São essencialmente Arrays com “buracos”, ou lacunas na sequência de seus índices. 
- */  
-        let arrayEsparsa = [];          // declarando uma array vazia
-        arrayEsparsa[2] = 'elemento1';  // adicionando um elemento no índice 2
-        arrayEsparsa[5] = 'elemento2';  // adicionando um elemento no índice 5
-
-        console.log(arrayEsparsa);      // output = [ <2 empty items>, 'elemento1', <2 empty items>, 'elemento2' ]
 
 
 /**     ARRAYS & SEUS ÍNDICES - Accessando elementos de um array
@@ -142,12 +157,17 @@
 
     /**     A propriedade .length
      * 
+     *  A contagem total de elementos na matriz é o seu comprimento length:
      *  Todo array em JS possui uma propriedade de comprimento (LENGTH).  
      *  Podemos descobrir quantos itens estão em um array com a length propriedade. 
      * 
      *      A length propriedade em um Array pega o índice do último elemento e adiciona um. 
      *      Portanto, se você tiver um array com buracos entre o índice 0 a 100 e um elemento no índice 101, 
      *          retornará length101, pois é o último índice + 1.
+     * 
+     *  Normalmente, a propriedade length de um Array retorna com precisão o número de elementos no array.
+     *      Mas em arrays esparsos isso não acontece. 
+     *      Se a matriz for esparsa, o valor da propriedade length será maior que o número de elementos.
      * */
         
         // Para arrays não esparsos (também chamados de densos), a propriedade length especifica o número de elementos no array.
@@ -163,7 +183,6 @@
 
     
 
-  
 
 
 
